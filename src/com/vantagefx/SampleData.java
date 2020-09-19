@@ -5,7 +5,12 @@ import java.util.Map;
 
 public class SampleData {
 
+	//relationMap is storing user relation information
+	//key is user id, value is parent user id (null means this user is root user and does not have parent)
     private static Map<Integer, Integer> relationMap = new HashMap<>();
+    
+    //userMap is storing users' data
+    //key is user id, value is user object
     private static Map<Integer, User> userMap = new HashMap<>();
 
     static {
@@ -46,16 +51,15 @@ public class SampleData {
 
         relationMap.put(24, 23);
 
-
-        userMap.put(1, new User(1, "root", "", ""));
-        userMap.put(2, new User(2, "Two", "two@test.com", "2000"));
-        userMap.put(3, new User(3, "Three", "three@test.com", "3000"));
-        userMap.put(4, new User(4, "Four", "four@test.com", "4000"));
-        userMap.put(5, new User(5, "Five", "", ""));
-        userMap.put(6, new User(6, "Six", "", ""));
-        userMap.put(7, new User(7, "Seven", "", ""));
-        userMap.put(8, new User(8, "Eight", "", ""));
-        userMap.put(9, new User(9, "Nine", "", ""));
+        userMap.put(1,  new User(1,  "root", "", ""));
+        userMap.put(2,  new User(2,  "Two", "two@test.com", "2000"));
+        userMap.put(3,  new User(3,  "Three", "three@test.com", "3000"));
+        userMap.put(4,  new User(4,  "Four", "four@test.com", "4000"));
+        userMap.put(5,  new User(5,  "Five", "", ""));
+        userMap.put(6,  new User(6,  "Six", "", ""));
+        userMap.put(7,  new User(7,  "Seven", "", ""));
+        userMap.put(8,  new User(8,  "Eight", "", ""));
+        userMap.put(9,  new User(9,  "Nine", "", ""));
         userMap.put(10, new User(10, "Ten", "", ""));
         userMap.put(11, new User(11, "Eleven", "", ""));
         userMap.put(12, new User(12, "Twelve", "", ""));
