@@ -1,6 +1,6 @@
 package com.vantagefx;
 
-import java.util.Map;
+import java.util.*;
 
 /**
  * Code challenge of VantageFX Java Developer
@@ -50,12 +50,32 @@ import java.util.Map;
  */
 public class Application {
 
+    public static Map<Integer, User> userMap = SampleData.getUserData();
+    public static Map<Integer, Integer> relationMap = SampleData.getRelationMap();
+
     public static void buildUserTree(Node<User> node) {
         /**
          * implement this method
          * build the tree data structure
          *
          */
+
+        Tree<Integer, User> tree = new Tree<>(1, node.getData());
+
+        Set<Integer> childID = userMap.keySet();
+        Collection<Integer> parentID = relationMap.values();
+        List<Integer> ChildID = new ArrayList<>(childID);
+        List<Integer> ParentID = new ArrayList<>(parentID);
+
+        int i = 0;
+
+        for(Map.Entry<Integer,Integer> relationEntry : relationMap.entrySet())
+        {
+            tree.addChild(ParentID.get(i), ChildID.get(i), userMap.get(i+1) );
+            i++;
+        }
+
+        System.out.println(tree.subtreeToString(1));
     }
 
     public static void main(String[] args) {
